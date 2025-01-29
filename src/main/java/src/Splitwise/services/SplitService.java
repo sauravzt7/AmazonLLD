@@ -4,6 +4,8 @@ import src.Splitwise.creator.ExpenseCreator;
 import src.Splitwise.models.User;
 import src.Splitwise.strategies.SplitStrategy;
 
+import java.util.List;
+
 public class SplitService {
 
     private final ExpenseCreator expenseCreator;
@@ -13,7 +15,7 @@ public class SplitService {
     }
 
 
-    public void addExpense(double amount, String description, User paidBy, SplitStrategy splitStrategy){
-        expenseCreator.createExpense(amount, description, paidBy, splitStrategy);
+    public void addExpense(double amount, String description, User paidBy, List<User> participants, SplitStrategy splitStrategy){
+        expenseCreator.createExpense(amount, description, paidBy, participants, splitStrategy);
     }
 }

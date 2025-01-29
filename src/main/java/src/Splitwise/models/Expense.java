@@ -11,12 +11,14 @@ public class Expense {
     private double amount;
     private String description;
     private User paidBy;
+    private List<User> participants;
     List<Split> splits;
 
-    public Expense(double amount, String description, User paidBy, List<Split> splits) {
+    public Expense(double amount, String description, User paidBy, List<User> participants, List<Split> splits) {
         this.amount = amount;
         this.description = description;
         this.paidBy = paidBy;
+        this.participants = participants;
         this.splits = splits;
 
     }
@@ -60,6 +62,12 @@ public class Expense {
 
     @Override
     public String toString() {
-        return super.toString();
+        return "Expense{" +
+                "amount=" + amount +
+                ", description='" + description + '\'' +
+                ", paidBy=" + (paidBy != null ? paidBy.getUsername() : "null") +
+                ", participants=" + (participants != null ? participants.toString() : "null") +
+                ", splits=" + (splits != null ? splits.toString() : "null") +
+                '}';
     }
 }

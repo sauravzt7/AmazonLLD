@@ -12,9 +12,9 @@ import java.util.List;
 public class ExpenseFactory implements ExpenseCreator {
 
     @Override
-    public void createExpense(double amount, String description, User paidBy, SplitStrategy splitStrategy) {
-        List<Split> splits = splitStrategy.split();
-        Expense createdExpense = new Expense(amount, description, paidBy, splits);
-        System.out.println("Expense created: " + createdExpense);
+    public void createExpense(double amount, String description, User paidBy, List<User> participants, SplitStrategy splitStrategy) {
+        List<Split> splits = splitStrategy.split(amount, participants);
+        Expense createdExpense = new Expense(amount, description, paidBy, participants, splits);
+        System.out.println("Expense created: " + createdExpense.toString());
     }
 }

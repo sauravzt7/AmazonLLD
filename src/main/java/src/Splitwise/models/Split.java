@@ -27,4 +27,12 @@ public class Split {
     public void setOwedUser(User owedUser) {
         this.owedUser = owedUser;
     }
+
+    @Override
+    public String toString(){
+        return "Split{" +
+                "amount=" + amount +
+                ", owedUser=" + (owedUser != null ? owedUser.getUsername() : "null") +
+                '}';
+    }
 }
